@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2016 at 01:52 PM
+-- Generation Time: Nov 14, 2016 at 10:43 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -42,6 +42,23 @@ INSERT INTO `batch` (`id`, `batch`) VALUES
 (3, '3'),
 (4, '4'),
 (5, '5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  `commentId` int(11) NOT NULL AUTO_INCREMENT,
+  `postId` int(11) NOT NULL,
+  `senderUserId` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `reciverUserId` int(11) NOT NULL,
+  `numberOfComments` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`commentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -101,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `emailverify` (
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `verify` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `emailverify`
@@ -109,7 +126,8 @@ CREATE TABLE IF NOT EXISTS `emailverify` (
 
 INSERT INTO `emailverify` (`id`, `userId`, `email`, `tokken`, `time`, `verify`) VALUES
 (21, 50, 'netroxtech1122@gmail.com', 'gnitjUdm6i', '2016-11-07 15:40:02', 'yes'),
-(22, 51, '01112001065026@skt.umt.edu.pk', '7zTehznnCV', '2016-11-08 17:35:26', '');
+(22, 51, '01112001065026@skt.umt.edu.pk', '7zTehznnCV', '2016-11-14 21:18:49', 'yes'),
+(23, 52, '01112001065026@skt.umt.edu.pk', 'jRpbTHv3Xq', '2016-11-14 21:18:49', 'yes');
 
 -- --------------------------------------------------------
 
@@ -156,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `privacy` varchar(50) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`postId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `posts`
@@ -166,7 +184,30 @@ INSERT INTO `posts` (`postId`, `userId`, `userName`, `image`, `status`, `privacy
 (1, 50, 'abdulah masood', 'upload/attachment_6dcab6e8f056dbf6899418f701da90a0.jpg', 'dsds', 'private', '2016-11-09 11:52:31'),
 (2, 50, 'abdulah masood', 'upload/', 'dsdsssdsddd', 'private', '2016-11-09 12:45:06'),
 (3, 50, 'abdulah masood', 'upload/attachment_161024031153.jpeg', 'hello abdulalh  my  papepr', 'private', '2016-11-09 12:51:43'),
-(4, 50, 'abdulah masood', 'upload/Cheap-Web-hosting-In-Pakistan---t.jpg', 'ddsds', 'private', '2016-11-09 12:52:23');
+(4, 50, 'abdulah masood', 'upload/Cheap-Web-hosting-In-Pakistan---t.jpg', 'ddsds', 'private', '2016-11-09 12:52:23'),
+(5, 50, 'abdulah masood', 'upload/14618863_706264779549420_454534388_o.jpg', 'hello abdullah MAsood', 'public', '2016-11-09 13:11:58'),
+(6, 50, 'abdulah masood', 'upload/Friend1.PNG', 'helo abdullah ', 'private', '2016-11-12 09:31:05'),
+(7, 50, 'abdulah masood', 'upload/1.png', 'hellossss', 'private', '2016-11-12 09:31:20'),
+(8, 0, '', '', '', '', '2016-11-13 08:14:29'),
+(9, 0, '', '', '', '', '2016-11-13 08:14:29'),
+(10, 0, '', '', '', '', '2016-11-13 08:14:30'),
+(11, 0, '', '', '', '', '2016-11-13 08:14:30'),
+(12, 0, '', '', '', '', '2016-11-13 08:14:30'),
+(13, 0, '', '', '', '', '2016-11-13 08:14:30'),
+(14, 0, '', '', '', '', '2016-11-13 08:14:30'),
+(15, 0, '', '', '', '', '2016-11-13 08:16:36'),
+(16, 0, '', '', '', '', '2016-11-13 08:16:50'),
+(17, 0, '', '', '', '', '2016-11-13 08:16:52'),
+(18, 0, '', '', '', '', '2016-11-13 08:17:02'),
+(19, 0, '', '', '', '', '2016-11-13 08:17:02'),
+(20, 0, '', '', '', '', '2016-11-13 08:17:02'),
+(21, 0, '', '', '', '', '2016-11-13 08:17:02'),
+(22, 0, '', '', '', '', '2016-11-13 08:17:02'),
+(23, 0, '', '', '', '', '2016-11-13 08:17:02'),
+(24, 50, 'abdulah masood', 'upload/Four_Poplars_2.jpg', 'sddsdsd', 'private', '2016-11-13 13:15:41'),
+(25, 50, 'abdulah masood', 'upload/90dc8ec3-132a-4b47-b286-55cef6a89850.png', 'hello ', 'private', '2016-11-14 20:02:20'),
+(26, 52, 'usman abdullah', 'upload/90dc8ec3-132a-4b47-b286-55cef6a89850.png', 'hi guyss,,,,.  ', 'private', '2016-11-14 21:31:47'),
+(27, 52, 'usman abdullah', 'upload/', 'dsdsdsdsd', 'private', '2016-11-14 21:37:22');
 
 -- --------------------------------------------------------
 
@@ -181,23 +222,15 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `Address` text NOT NULL,
   `profileImage` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `profile`
 --
 
 INSERT INTO `profile` (`id`, `userId`, `Location`, `Address`, `profileImage`) VALUES
-(1, 1, 'silakot', 'sialkot gohad pure', 'upload/'),
 (2, 1, 'silakot', 'sialkot gohad pure', 'upload/14618863_706264779549420_454534388_o.jpg'),
-(3, 1, 'silakot', 'sialkot gohad pure', 'upload/'),
-(4, 1, 'silakot', 'sialkot gohad pure', 'upload/'),
-(5, 1, 'silakot', 'sialkot gohad pure', 'upload/'),
-(6, 1, '', '', 'upload/'),
-(7, 1, 'silakot', 'sialkot gohad pure', 'upload/'),
-(8, 1, 'silakot', 'address', 'upload/'),
-(9, 1, '', '', 'upload/13873178_1292030650824678_50254626756612510_n.jpg'),
-(10, 1, '', '', 'upload/14618863_706264779549420_454534388_o.jpg');
+(4, 52, 'Sialkot', 'panjab', 'upload/14980811_1120554241374892_8989480841722171117_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -300,14 +333,15 @@ CREATE TABLE IF NOT EXISTS `students` (
   `courseSection` varchar(10) NOT NULL,
   `courseCode` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `students`
 --
 
 INSERT INTO `students` (`id`, `userId`, `program`, `studentBatch`, `semester`, `studentSection`, `courceName`, `courseBatch`, `courseSection`, `courseCode`) VALUES
-(1, 35, 'BS:SE', '1', '1', 'A', 'Java', '1', 'A', 'b475');
+(1, 35, 'BS:SE', '1', '1', 'A', 'Java', '1', 'A', 'b475'),
+(2, 52, 'BS:SE', '2', '3', 'B', 'Programming', '1', 'A', '454b');
 
 -- --------------------------------------------------------
 
@@ -352,7 +386,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `gender` varchar(150) NOT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `users`
@@ -360,7 +394,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`userId`, `firstName`, `lastName`, `password`, `userEmail`, `userRole`, `program`, `phoneNumber`, `BDate`, `BMonth`, `BYear`, `time`, `gender`) VALUES
 (50, 'abdulah', 'masood', '123', 'netroxtech1122@gmail.com', 'student', '', '03042151706', '1', 'January', '1990', '2016-11-07 16:47:43', 'male'),
-(51, '123', '123', '123', '01112001065026@skt.umt.edu.pk', '', '', '123', '1', 'January', '1990', '2016-11-08 17:35:16', 'male');
+(52, 'usman', 'abdullah', '1234', '01112001065026@skt.umt.edu.pk', 'student', '', '03042151706', '1', 'January', '1990', '2016-11-14 21:27:17', 'male');
 
 -- --------------------------------------------------------
 
