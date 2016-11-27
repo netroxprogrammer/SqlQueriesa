@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2016 at 02:51 PM
+-- Generation Time: Nov 26, 2016 at 04:05 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `assgincourses` (
 --
 
 INSERT INTO `assgincourses` (`id`, `userId`, `program`, `name`, `email`, `courses`, `code`, `section`, `batch`, `time`) VALUES
+(4, 55, '1', 'Salman Ali', '54', 'b475', 'b475', '1', '1', '2016-11-26 12:27:55'),
 (5, 55, '1', 'Salman Ali', '01113002065008@skt.umt.edu.pk', 'b475', 'b475', '1', '1', '2016-11-26 12:28:33');
 
 -- --------------------------------------------------------
@@ -69,26 +70,6 @@ INSERT INTO `batch` (`id`, `batch`) VALUES
 (3, '3'),
 (4, '4'),
 (5, '5');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `classnames`
---
-
-CREATE TABLE IF NOT EXISTS `classnames` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `className` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `classnames`
---
-
-INSERT INTO `classnames` (`id`, `className`) VALUES
-(1, 'B2:4'),
-(2, 'B3:3');
 
 -- --------------------------------------------------------
 
@@ -220,34 +201,6 @@ INSERT INTO `emailverify` (`id`, `userId`, `email`, `tokken`, `time`, `verify`) 
 (24, 53, '01112001065026@skt.umt.edu.pk', 'ovXOO1VkBm', '2016-11-19 21:50:03', 'yes'),
 (25, 54, '01113002065008@skt.umt.edu.pk', 'dtbDhGew5y', '2016-11-23 17:30:44', 'yes'),
 (26, 55, 'umerMirza@gmail.com', '$wWS@#$DE', '2016-11-26 11:41:27', 'yes');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `file`
---
-
-CREATE TABLE IF NOT EXISTS `file` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT 'Untitled.txt',
-  `mime` varchar(50) NOT NULL DEFAULT 'text/plain',
-  `size` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `data` longblob NOT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `file`
---
-
-INSERT INTO `file` (`id`, `name`, `mime`, `size`, `data`, `created`) VALUES
-(1, '', '', 0, '', '2016-11-27 00:20:01'),
-(2, '2013MDS.1-50.doc', '', 0, '', '2016-11-27 00:20:26'),
-(3, '90dc8ec3-132a-4b47-b286-55cef6a89850.png', 'image/png', 6894, 0x433a78616d7070096d707068703743452e746d70, '2016-11-27 00:21:34'),
-(4, 'motorbike.sql', 'application/octet-stream', 5978, 0x433a78616d7070096d70706870383637302e746d70, '2016-11-27 00:22:06'),
-(5, 'attachment_f2ca38687270c785faed13444979b54e.doc', 'application/msword', 359936, 0x433a78616d7070096d70706870433146422e746d70, '2016-11-27 00:22:22'),
-(6, 'There is vulnerability in webview older than 4.docx', 'application/vnd.openxmlformats-officedocument.word', 202280, 0x433a78616d7070096d70706870364245312e746d70, '2016-11-27 00:23:05');
 
 -- --------------------------------------------------------
 
@@ -589,29 +542,6 @@ INSERT INTO `teachers` (`id`, `userId`, `teacherSkills`, `teacherExpeirance`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `updatenews`
---
-
-CREATE TABLE IF NOT EXISTS `updatenews` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `newsMessage` text NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `updatenews`
---
-
-INSERT INTO `updatenews` (`id`, `newsMessage`, `status`, `userId`, `time`) VALUES
-(1, 'sdssssdsdsds dsdsdsd', '1', 55, '2016-11-26 17:46:48'),
-(2, 'ssddddsdsd', '1', 55, '2016-11-26 17:47:25');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `uplaodtimetable`
 --
 
@@ -621,23 +551,13 @@ CREATE TABLE IF NOT EXISTS `uplaodtimetable` (
   `subject` varchar(150) NOT NULL,
   `code` varchar(150) NOT NULL,
   `classTime` varchar(150) NOT NULL,
-  `className` varchar(150) NOT NULL,
   `teacher` varchar(150) NOT NULL,
-  `teacherId` int(11) NOT NULL,
   `batch` varchar(150) NOT NULL,
   `section` varchar(150) NOT NULL,
   `program` varchar(150) NOT NULL,
-  `day` varchar(20) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `uplaodtimetable`
---
-
-INSERT INTO `uplaodtimetable` (`id`, `userId`, `subject`, `code`, `classTime`, `className`, `teacher`, `teacherId`, `batch`, `section`, `program`, `day`, `time`) VALUES
-(5, 55, 'b475', 'b475', '02:45:PM', '1', 'Salman Ali', 54, '1', '1', '1', '1', '2016-11-27 10:41:13');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -672,31 +592,6 @@ INSERT INTO `users` (`userId`, `firstName`, `lastName`, `password`, `userEmail`,
 (53, 'Bilal', 'Anwar', '123', '01112001065026@skt.umt.edu.pk', 'student', '', '0302222', '1', 'January', '1990', '2016-11-19 21:50:46', 'male'),
 (54, 'Salman', 'Ali', '123', '01113002065008@skt.umt.edu.pk', 'teacher', '', '030000000000', '3', 'April', '1994', '2016-11-23 17:30:53', 'male'),
 (55, 'umer', 'Mirza', '123', 'umerMirza@gmail.com', 'coordinator', '', '03042151706', '', '', '', '2016-11-23 18:38:38', 'male');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `weakdays`
---
-
-CREATE TABLE IF NOT EXISTS `weakdays` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `weakdays`
---
-
-INSERT INTO `weakdays` (`id`, `name`) VALUES
-(1, 'Sunday'),
-(2, 'Monday'),
-(3, 'Tuesday'),
-(4, 'Wednesday'),
-(5, 'Thursday'),
-(6, 'Friday'),
-(7, 'Saturday');
 
 -- --------------------------------------------------------
 
