@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2016 at 08:02 PM
+-- Generation Time: Nov 30, 2016 at 09:40 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -40,14 +40,19 @@ CREATE TABLE IF NOT EXISTS `addquizmarks` (
   `semester` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`quizId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `addquizmarks`
 --
 
 INSERT INTO `addquizmarks` (`quizId`, `program`, `section`, `batch`, `subject`, `studentId`, `quizMarks`, `totalQuizMarks`, `teacherId`, `type`, `semester`, `time`) VALUES
-(2, '1', '1', '1', 'b475', '01112001065026', 9, 10, 54, 'quiz', 0, '2016-11-28 16:49:03');
+(2, '1', '1', '1', 'b475', '01112001065026', 9, 10, 54, 'quiz', 0, '2016-11-28 16:49:03'),
+(3, '1', '1', '1', 'b475', '01112001065026', 9, 10, 54, 'quiz', 0, '2016-11-29 15:04:13'),
+(4, '1', '1', '1', 'b475', '01112001065026', 9, 10, 54, 'quiz', 0, '2016-11-29 15:06:16'),
+(5, '1', '1', '1', 'b475', '01112001065026', 9, 10, 54, 'quiz', 0, '2016-11-29 15:07:38'),
+(6, '1', '1', '1', '454b', '01112001065026', 9, 10, 54, 'quiz', 1, '2016-11-29 15:09:32'),
+(7, '1', '1', '1', 'b475', '01112001065026', 25, 30, 54, 'mid', 1, '2016-11-29 15:34:40');
 
 -- --------------------------------------------------------
 
@@ -342,7 +347,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `privacy` varchar(50) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`postId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `posts`
@@ -373,7 +378,9 @@ INSERT INTO `posts` (`postId`, `userId`, `userName`, `image`, `status`, `privacy
 (39, 53, 'Bilal Anwar', 'upload/13873178_1292030650824678_50254626756612510_n.jpg', 'ggfg', 'public', '2016-11-22 18:50:48'),
 (40, 53, 'Bilal Anwar', 'upload/13315366_1193991220619435_4648832023830460489_n.jpg', 'dfddf', 'private', '2016-11-22 18:55:57'),
 (41, 53, 'Bilal Anwar', 'upload/14563431_1211591735566437_7225699296943201593_n.jpg', 'jhgjij', 'private', '2016-11-22 18:57:24'),
-(42, 50, 'abdulah masood', 'upload/Friend3.PNG', '65765', 'private', '2016-11-22 18:59:34');
+(42, 50, 'abdulah masood', 'upload/Friend3.PNG', '65765', 'private', '2016-11-22 18:59:34'),
+(43, 50, 'abdulah masood', 'upload/certificate.jpg', 'my certificates', 'private', '2016-11-29 07:33:49'),
+(44, 53, 'Bilal Anwar', 'upload/90dc8ec3-132a-4b47-b286-55cef6a89850.png', 'sdsddsd', 'public', '2016-11-29 07:35:48');
 
 -- --------------------------------------------------------
 
@@ -389,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `poststatus` (
   `numberOfDisLikes` int(11) NOT NULL DEFAULT '0',
   `senderId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=205 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=207 ;
 
 --
 -- Dumping data for table `poststatus`
@@ -426,7 +433,9 @@ INSERT INTO `poststatus` (`id`, `postId`, `userId`, `numberOfLikes`, `numberOfDi
 (201, 40, 53, 1, 0, 50),
 (202, 40, 53, 0, 1, 53),
 (203, 41, 53, 1, 0, 53),
-(204, 42, 50, 1, 0, 50);
+(204, 42, 50, 1, 0, 50),
+(205, 43, 50, 1, 0, 50),
+(206, 44, 53, 1, 0, 53);
 
 -- --------------------------------------------------------
 
